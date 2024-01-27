@@ -1,0 +1,4 @@
+name: '${name}'
+version: '${version}'
+main: '${group}.sample.MapelSample'
+api-version: '1.19'

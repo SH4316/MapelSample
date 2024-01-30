@@ -21,6 +21,11 @@ repositories {
 
 dependencies {
 	compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
+
+	compileOnly("org.projectlombok:lombok:1.18.30")
+	annotationProcessor("org.projectlombok:lombok:1.18.30")
+	testCompileOnly("org.projectlombok:lombok:1.18.30")
+	testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
 }
 
 val targetJavaVersion = 17
@@ -48,7 +53,8 @@ tasks {
 		)
 		inputs.properties(props)
 		filteringCharset = "UTF-8"
-		filesMatching("plugin.yml") {
+		var list = mutableListOf("plugin.yml", "paper-plugin.yml")
+		filesMatching(list) {
 			expand(props)
 		}
 	}
